@@ -1,0 +1,30 @@
+mat-toolbar {
+    height: 8vh;
+    color: #fff;
+    background-color: #1b1e2f;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 90%;
+}
+
+.logotipo {
+    height: 8vh;
+}
+
+a {
+    display: flex;
+    margin-right: 15%;
+    justify-items: center;
+}
+
+a:visited,
+a:link {
+    text-decoration: none;
+    color: #ccc;
+}
+
+a:hover,
+a:active {
+    text-decoration: none;
+    color: #fff;
+}

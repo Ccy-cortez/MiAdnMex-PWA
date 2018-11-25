@@ -1,0 +1,23 @@
+.form-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-between;
+}
+
+.mat-slider-horizontal {
+    width: 45%;
+}
+
+.input-form {
+    width: 45%;
+}
+
+.input-select {
+    width: 100%;
+}
+
+.mat-primary .mat-slider-track-fill {
+    background-color: #7b1fa2;
+}

@@ -1,0 +1,41 @@
+.logo {
+    max-width: 200px;
+}
+
+.logo-container {
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.menu-container {
+    margin: 0rem 15% 2% 15%;
+}
+
+.menu-items {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.menu-items a {
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 90%;
+}
+
+.menu-container a {}
+
+.mat-button:hover {
+    background-color: #222;
+}
+
+.menu-container a:hover {
+    background-color: transparent;
+}
+
+@media only screen and (max-width:900px) {
+    .menu-container {
+        display: none;
+    }
+}

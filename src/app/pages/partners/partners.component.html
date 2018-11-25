@@ -1,0 +1,123 @@
+<div class="container-partners">
+
+
+    <mat-card *ngIf="aux" class="partner-card">
+        <a>
+            <mat-icon (click)="cambiarCard('left')" class="icon-left">keyboard_arrow_left</mat-icon>
+        </a>
+        <a>
+            <mat-icon (click)="cambiarCard('right')" class="icon-right">keyboard_arrow_right</mat-icon>
+        </a>
+        <mat-card-title class="box-title">{{this.arrayGrafico[contador][contador][0].label}} | Comparación </mat-card-title>
+        <div class="tab-container compara">
+            <mat-card-content class="tab-container-description estadisticas-box">
+                <div class="stat-box" *ngFor="let stat of arrayStats; let i=index">
+                    <mat-card-subtitle>{{stat.value}}</mat-card-subtitle>
+                    <section class="example-section">
+                        {{this.arrayGrafico[contador][contador][0].dif[i]}}% Parecido
+                        <mat-progress-bar mode="buffer" [value]="this.arrayGrafico[contador][contador][0].dif[i]" [bufferValue]="this.arrayGrafico[contador][contador][0].data[i]"></mat-progress-bar>
+                    </section>
+                </div>
+            </mat-card-content>
+        </div>
+        <div *ngIf="contador===aux" class="card-footer">Tu resultado mas parecido</div>
+    </mat-card>
+
+    <mat-card *ngIf="!aux" class="white item-form">
+        <mat-card-title class="box-title">Comparate, Introduce tus datos</mat-card-title>
+        <div class="input-box">
+            <app-input-bar *ngFor="let stat of arrayStats; let i=index" (valueChange)="cambiarGrafica($event, i)" [tipo]="stat.tipo" [placeholder]="stat.value"></app-input-bar>
+            <mat-divider [inset]="true"></mat-divider>
+        </div>
+        <div class="card-text">
+            <mat-card-subtitle>Comparte para conocer tus resultados</mat-card-subtitle>
+            <share-button (click)="compartio=true" [theme]="'default'" [button]="'facebook'" [url]="'http://www.miadnmexico.com/compara/#/partners'" [showIcon]="false" [showText]="true"></share-button>
+            <share-button (click)="compartio=true" [theme]="'default'" [button]="'twitter'" [url]="'http://www.miadnmexico.com/compara/#/partners'" [showIcon]="false" [showText]="true"></share-button>
+            <button *ngIf="compartio===true" class="card-button" (click)="analizar()" mat-raised-button>Compararme</button>
+        </div>
+    </mat-card>
+
+
+    <!-- Mas parecido en General 
+    <mat-card *ngIf="aux>=0" class="partner-card">
+        <mat-card-subtitle class="subtitle-card">Tus estadisticas son mas parecidas a:</mat-card-subtitle>
+        <mat-tab-group class="item-partner">
+            <mat-tab label="Biografía">
+                <div class="tab-container">
+                    <img class="tab-container-img" mat-card-image [src]="this.arrayGrafico[aux][aux][0].imgurl" />
+                    <mat-card-title>{{this.arrayGrafico[aux][aux][0].label}}</mat-card-title>
+                    <mat-card-subtitle>{{this.arrayGrafico[aux][aux][0].occupation}}</mat-card-subtitle>
+                    <mat-card-content class="tab-container-description">{{this.arrayGrafico[aux][aux][0].description}}</mat-card-content>
+                    <mat-divider [inset]="true "></mat-divider>
+                    <mat-card-actions>
+
+                    </mat-card-actions>
+                </div>
+            </mat-tab>
+            <mat-tab label="Stats">
+                <app-chart (valueChange)="actualizar($event)" [radarChartData]="this.arrayGrafico[aux][aux]"></app-chart>
+            </mat-tab>
+        </mat-tab-group>
+    </mat-card>
+ Mas parecido en General -->
+
+    <!-- estilo anterior
+    <mat-card class="partner-card">
+        <a>
+            <mat-icon (click)="cambiarCard('left')" class="icon-left">keyboard_arrow_left</mat-icon>
+        </a>
+        <a>
+            <mat-icon (click)="cambiarCard('right')" class="icon-right">keyboard_arrow_right</mat-icon>
+        </a>
+        <mat-tab-group class="item-partner">
+            <mat-tab label="Biografía">
+                <div class="tab-container">
+                    <div class="bio"></div>
+                    <img class="tab-container-img" mat-card-image [src]="this.arrayGrafico[contador][contador][0].imgurl" />
+
+                    <mat-card-title class="recuadro-transparente title-absolute">{{this.arrayGrafico[contador][contador][0].label}}</mat-card-title>
+                    <mat-card-subtitle class="recuadro-transparente subtitle-partner">{{this.arrayGrafico[contador][contador][0].occupation}}</mat-card-subtitle>
+
+                    <mat-card-subtitle class="subtitle-partner-2 recuadro-mas-transparente">{{this.arrayGrafico[contador][contador][0].description}}</mat-card-subtitle>
+                </div>
+            </mat-tab>
+            <mat-tab label="Stats">
+                <div class="title-grafica ">
+                    <mat-card-title class="title-graph">{{this.arrayGrafico[contador][contador][0].label}}</mat-card-title>
+                </div>
+                <app-chart (valueChange)="actualizar($event)" [radarChartData]="this.arrayGrafico[contador][contador]"></app-chart>
+            </mat-tab>
+        </mat-tab-group>
+        <div *ngIf="contador===aux" class="card-footer">Tu resultado mas parecido</div>
+    </mat-card>
+-->
+
+    <mat-card class="item-form">
+        <a>
+            <mat-icon (click)="cambiarCard('left')" class="icon-left">keyboard_arrow_left</mat-icon>
+        </a>
+        <a>
+            <mat-icon (click)="cambiarCard('right')" class="icon-right">keyboard_arrow_right</mat-icon>
+        </a>
+        <mat-card-title class="box-title">Atletas</mat-card-title>
+        <div class="margin-card">
+            <mat-card-content class="card-container">
+                <img class="card-image" [src]="this.arrayGrafico[contador][contador][0].imgurl">
+                <div class="graph-container">
+                    <app-chart (valueChange)="actualizar($event)" [radarChartData]="this.arrayGrafico[contador][contador]"></app-chart>
+                    <mat-card-title class="graph-title">Estadisticas</mat-card-title>
+                </div>
+            </mat-card-content>
+            <div class="card-text">
+                <mat-card-title>{{this.arrayGrafico[contador][contador][0].label}}</mat-card-title>
+                <mat-card-subtitle>{{this.arrayGrafico[contador][contador][0].occupation}} - {{this.arrayGrafico[contador][contador][0].description}}</mat-card-subtitle>
+            </div>
+        </div>
+        <!--
+        <mat-card-actions>
+            <button mat-button>LIKE</button>
+            <button mat-button>SHARE</button>
+        </mat-card-actions>
+        -->
+        <div *ngIf="contador===aux" class="card-footer">Tu resultado mas parecido</div>
+    </mat-card>

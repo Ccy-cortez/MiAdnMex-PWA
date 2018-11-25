@@ -1,0 +1,21 @@
+<div class="logo-container">
+    <img class="logo" src="https://cdn.shopify.com/s/files/1/1637/4383/files/Para_fondo_claro_a69d7710-b22f-429b-8fab-c98778895843_360x.png?v=1515425169" alt="Logotipo MiAdnFit">
+</div>
+
+<div class=menu-container>
+    <mat-divider></mat-divider>
+    <div class="menu-items">
+        <a mat-button href="https://www.miadnfit.com/collections/analisis-geneticos">Tienda</a>
+        <a mat-button [matMenuTriggerFor]="test">Sobre el test</a>
+
+        <mat-menu #test="matMenu">
+            <a href="https://www.miadnfit.com/pages/genetica-y-nutricion" mat-menu-item>Nutrigenética</a>
+            <a href="https://www.miadnfit.com/pages/genetica-fit" mat-menu-item>Fitness</a>
+        </mat-menu>
+
+        <a mat-button href="https://www.miadnfit.com/collections/cursos-y-talleres">Cursos y Talleres</a>
+        <a mat-button href="https://www.miadnfit.com/pages/profesionales-certificados">Asesoria Profesional</a>
+        <a mat-button href="https://www.miadnfit.com/blogs/news">Blog</a>
+    </div>
+    <mat-divider></mat-divider>
+</div>

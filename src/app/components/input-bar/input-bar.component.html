@@ -1,0 +1,23 @@
+<mat-card-content>
+    <section class="form-section">
+        <mat-form-field *ngIf="tipo === 'porcentaje'" class="input-form">
+            <input primary (change)="cambiarValor()" matInput type="number" [placeholder]="placeholder" [(ngModel)]="value" max="100" min="0">
+            <!-- <mat-select *ngIf="tipo === 'velocidad'" (change)="cambiarValor()" [placeholder]="placeholder">
+                <mat-option *ngFor="let velocidad of velocidades" [value]="velocidad.value" matInput>
+                    {{velocidad.viewValue}}
+                </mat-option>
+            </mat-select>-->
+        </mat-form-field>
+
+        <mat-form-field class="input-select" *ngIf="tipo === 'cantidad'">
+            <mat-select [(ngModel)]="value" (selectionChange)="cambiarValor()" [placeholder]="placeholder">
+                <mat-option *ngFor="let indicador of indicadores; let i=index" [value]="indicador.value" matInput>
+                    {{indicador.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-slider *ngIf="tipo === 'porcentaje'" thumbLabel="true" (change)="cambiarValor()" color="primary" [disabled]="disabled" [invert]="invert" [max]="max" [min]="min" [step]="step" [thumbLabel]="thumbLabel" [(ngModel)]="value" [vertical]="vertical">
+        </mat-slider>
+    </section>
+</mat-card-content>

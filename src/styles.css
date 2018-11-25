@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~normalize.css';
+@import '~@ngx-share/button/styles/share-buttons.css';
+@import '~@ngx-share/button/styles/themes/default/default-theme.css';
+.fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+}
+
+.primarycolor {
+    background-color: #424242;
+}
+
+.lightgraycolor {
+    background-color: #b1b1b1;
+}
+
+.white {
+    background-color: #fff;
+    color: #000;
+}
+
+
+/* primary #424242 */
+
+
+/* accent #7b1fa2 */
+
+
+/* accent 2(?) #c2185b*/
+
+
+/* Test
+* {
+    background: #000 !important;
+    color: #0f0 !important;
+    outline: solid #f00 1px !important;
+}
+*/
